@@ -1,7 +1,9 @@
 require('dotenv').config();
 
 const express = require('express');
-const listEndpoints = require('express-list-endpoints');
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
 
 const authRoutes = require('./routes/authRoutes');
 const courseRoutes = require('./routes/courseRoutes');
@@ -14,9 +16,7 @@ app.use('/api', authRoutes);
 app.use('/api', courseRoutes);
 app.use('/api', userRoutes);
 
-app.get('/endpoints', (req, res) => {
-  res.json(listEndpoints(app));
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "swagger": "node swagger.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
     "express": "^4.21.2",
-    "express-list-endpoints": "^7.1.1"
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
